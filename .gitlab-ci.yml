@@ -1,0 +1,81 @@
+stages:
+  - lint
+  - test
+  - build
+  - deploy
+
+variables:
+  GO_VERSION: "1.22"
+  NODE_VERSION: "20"
+
+# ------------------------------------------------------------
+# Backend Core (Go)
+# ------------------------------------------------------------
+backend:lint:
+  stage: lint
+  image: golang:${GO_VERSION}
+  script:
+    - cd backend/core
+    - go mod tidy
+    - go vet ./...
+  only:
+    - merge_requests
+    - main
+
+backend:test:
+  stage: test
+  image: golang:${GO_VERSION}
+  services:
+    - postgres:16-alpine
+  variables:
+    POSTGRES_USER: ups
+    POSTGRES_PASSWORD: ups_secret
+    POSTGRES_DB: ups_eco
+    DATABASE_URL: "postgres://ups:ups_secret@postgres:5432/ups_eco?sslmode=disable"
+  script:
+    - cd backend/core
+    - go test ./... -count=1
+  only:
+    - merge_requests
+    - main
+
+backend:build:
+  stage: build
+  image: golang:${GO_VERSION}
+  script:
+    - cd backend/core
+    - CGO_ENABLED=0 GOOS=linux go build -o bin/api ./cmd/api
+  artifacts:
+    paths:
+      - backend/core/bin/api
+    expire_in: 1 week
+  only:
+    - main
+
+# ------------------------------------------------------------
+# Frontend (SvelteKit)
+# ------------------------------------------------------------
+frontend:lint:
+  stage: lint
+  image: node:${NODE_VERSION}
+  script:
+    - cd frontend/web
+    - npm ci
+    - npm run check
+  only:
+    - merge_requests
+    - main
+
+frontend:build:
+  stage: build
+  image: node:${NODE_VERSION}
+  script:
+    - cd frontend/web
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - frontend/web/build
+    expire_in: 1 week
+  only:
+    - main

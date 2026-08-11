@@ -1,0 +1,9 @@
+fastapi==0.115.4
+uvicorn[standard]==0.32.0
+pydantic==2.9.2
+sqlalchemy==2.0.36
+asyncpg==0.30.0
+redis==5.2.0
+clickhouse-connect==0.8.3
+python-multipart==0.0.12
+openpyxl==3.1.5

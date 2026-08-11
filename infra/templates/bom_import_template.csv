@@ -1,0 +1,8 @@
+level,article,quantity,uom,type,position
+1,INV-1K-12V,1,шт,component,10
+1,BAT-12V-100AH,1,шт,component,20
+1,CHG-12V-20A,1,шт,component,30
+1,CASE-1K,1,шт,assembly,40
+2,PCB-CTRL-V2,1,шт,component,50
+2,FAN-80MM,2,шт,component,60
+1,CABLE-PWR-2M,1,шт,component,70

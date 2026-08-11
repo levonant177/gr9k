@@ -1,0 +1,13 @@
+article,name,type,family,line,execution,weight,status
+UPS-1K-12V,ИБП 1кВА 12В,product,UPS,Standard,12V,8.5,active
+UPS-3K-24V,ИБП 3кВА 24В,product,UPS,Standard,24V,18.2,active
+UPS-10K-48V,ИБП 10кВА 48В,product,UPS,Industrial,48V,45.0,active
+BAT-12V-100AH,АКБ 12В 100Ач,component,BATTERY,AGM,12V,28.5,active
+BAT-12V-200AH,АКБ 12В 200Ач,component,BATTERY,AGM,12V,55.0,active
+INV-1K-12V,Инвертор 1кВА 12В,component,INVERTER,PureSine,12V,2.1,active
+INV-3K-24V,Инвертор 3кВА 24В,component,INVERTER,PureSine,24V,4.8,active
+CHG-12V-20A,Зарядное 12В 20А,component,CHARGER,Smart,12V,1.2,active
+CASE-1K,Корпус 1кВА,component,CASE,Metal,Standard,3.5,active
+PCB-CTRL-V2,Плата управления v2,component,PCB,Control,V2,0.15,active
+FAN-80MM,Вентилятор 80мм,component,COOLING,Axial,80mm,0.08,active
+CABLE-PWR-2M,Кабель питания 2м,component,CABLE,Power,2m,0.35,active

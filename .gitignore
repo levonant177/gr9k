@@ -1,0 +1,62 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+dist/
+
+# Go
+vendor/
+*.test
+coverage.out
+coverage.html
+
+# Node / SvelteKit
+node_modules/
+.svelte-kit/
+build/
+.vercel/
+.output/
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker volumes / local data
+infra/docker/data/
+
+# Secrets
+*.pem
+*.key
+secrets/
+.env.local
+
+# Flutter
+mobile/tsd/.dart_tool/
+mobile/tsd/build/
+mobile/tsd/.packages
+mobile/tsd/pubspec.lock
+
+# Logs
+*.log
+logs/
